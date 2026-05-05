@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Telusurf</string>
+    <string name="search_hint">Masukkan URL atau kata kunci</string>
+    <string name="home">Home</string>
+    <string name="menu">Menu</string>
+    <string name="add_tab">Tambah tab</string>
+    <string name="default_tab_name">Tab %1$d</string>
 </resources>
