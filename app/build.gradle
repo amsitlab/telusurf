@@ -4,12 +4,12 @@ plugins {
 
 android {
     namespace 'amsitlab.android.telusurf'
-    compileSdkVersion 28
+    compileSdkVersion 34
 
     defaultConfig {
         applicationId 'amsitlab.android.telusurf'
         minSdkVersion 21
-        targetSdkVersion 28
+        targetSdkVersion 34
         versionCode 1
         versionName '0.1.0'
     }
