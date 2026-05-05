@@ -1,0 +1,2 @@
+rootProject.name = 'Telusurf'
+include ':app'
