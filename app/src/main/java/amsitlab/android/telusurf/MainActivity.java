@@ -5,14 +5,23 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.core.widget.ImageViewCompat;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -43,6 +52,8 @@ public class MainActivity extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         toolbarMenuLayout = findViewById(R.id.toolbarMenuLayout);
 
+        setupToolbarMenuList();
+
         ImageButton toolbarMenu = findViewById(R.id.toolbarMenu);
         ImageButton btnExit = findViewById(R.id.btnExit);
         ImageButton btnSettings = findViewById(R.id.btnSettings);
@@ -62,6 +73,18 @@ public class MainActivity extends AppCompatActivity {
         btnExit.setOnClickListener(v -> finishAffinity());
     }
 
+    private void setupToolbarMenuList() {
+        RecyclerView toolbarMenuList = findViewById(R.id.toolbarMenuList);
+        GridLayoutManager layoutManager = new GridLayoutManager(this, 2, RecyclerView.HORIZONTAL, false);
+        toolbarMenuList.setLayoutManager(layoutManager);
+
+        List<Integer> menuItems = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            menuItems.add(R.drawable.ic_menu_placeholder);
+        }
+        toolbarMenuList.setAdapter(new ToolbarMenuAdapter(menuItems));
+    }
+
     private void onCreateLogo() {
         ImageView ivLogo = findViewById(R.id.ivLogo);
 
@@ -79,5 +102,42 @@ public class MainActivity extends AppCompatActivity {
         ivLogo.getLayoutParams().width = logoSize;
         ivLogo.getLayoutParams().height = logoSize;
         ivLogo.requestLayout();
+    }
+
+    private static class ToolbarMenuAdapter extends RecyclerView.Adapter<ToolbarMenuAdapter.ViewHolder> {
+        private final List<Integer> items;
+
+        ToolbarMenuAdapter(List<Integer> items) {
+            this.items = items;
+        }
+
+        @NonNull
+        @Override
+        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_toolbar_menu, parent, false);
+            return new ViewHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+            holder.icon.setImageResource(items.get(position));
+            holder.label.setText("");
+        }
+
+        @Override
+        public int getItemCount() {
+            return items.size();
+        }
+
+        static class ViewHolder extends RecyclerView.ViewHolder {
+            ImageView icon;
+            TextView label;
+
+            ViewHolder(@NonNull View itemView) {
+                super(itemView);
+                icon = itemView.findViewById(R.id.itemIcon);
+                label = itemView.findViewById(R.id.itemLabel);
+            }
+        }
     }
 }
