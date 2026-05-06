@@ -2,7 +2,8 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="24dp">
 
     <TextView
         android:id="@+id/tvTitle"
@@ -10,9 +11,25 @@
         android:layout_height="wrap_content"
         android:text="Telusurf"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/input_url_main"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/input_url_background"
+        android:hint="Masukkan URL atau keyword"
+        android:imeOptions="actionGo"
+        android:inputType="textUri"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="12dp"
+        android:singleLine="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
