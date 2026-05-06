@@ -51,6 +51,11 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private boolean looksLikeUrl(String input) {
-        return android.util.Patterns.WEB_URL.matcher(input).matches() || input.contains(".");
+        Uri parsedUri = Uri.parse(input);
+        if (parsedUri.getScheme() != null) {
+            return parsedUri.isHierarchical() && parsedUri.getHost() != null;
+        }
+
+        return android.util.Patterns.DOMAIN_NAME.matcher(input).matches();
     }
 }
