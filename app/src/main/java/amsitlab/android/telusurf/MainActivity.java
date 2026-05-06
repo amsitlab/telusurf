@@ -17,6 +17,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        onCreateLogo();
+    }
+
+    private void onCreateLogo() {
         ImageView ivLogo = findViewById(R.id.ivLogo);
 
         boolean isDarkMode =
