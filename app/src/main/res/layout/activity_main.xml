@@ -17,19 +17,23 @@
 
     <LinearLayout
         android:id="@+id/toolbarMenuLayout"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="#E61E1E1E"
+        android:background="@drawable/bg_toolbar_menu_layout"
         android:orientation="vertical"
-        android:padding="12dp"
+        android:paddingStart="10dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="10dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1"
         app:layout_constraintStart_toStartOf="parent">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/toolbarMenuList"
-            android:layout_width="match_parent"
+            android:layout_width="360dp"
             android:layout_height="216dp"
             android:clipToPadding="false"
             android:overScrollMode="never"
@@ -37,7 +41,7 @@
 
         <LinearLayout
             android:id="@+id/toolbarMenuActionSection"
-            android:layout_width="match_parent"
+            android:layout_width="360dp"
             android:layout_height="wrap_content"
             android:gravity="end|center_vertical"
             android:orientation="horizontal"
