@@ -1,0 +1,4 @@
+<resources>
+    <attr name="searchInputStrokeColor" format="color" />
+    <attr name="searchInputFillColor" format="color" />
+</resources>
