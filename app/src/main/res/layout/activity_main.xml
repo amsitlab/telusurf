@@ -19,90 +19,72 @@
         android:id="@+id/toolbarMenuLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_margin="12dp"
         android:background="#E61E1E1E"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         android:padding="12dp"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
-        <GridLayout
-            android:id="@+id/toolbarMenuMainSection"
-            android:layout_width="0dp"
+        <HorizontalScrollView
+            android:id="@+id/toolbarMenuList"
+            android:layout_width="match_parent"
             android:layout_height="216dp"
-            android:layout_weight="1"
-            android:columnCount="5"
-            android:rowCount="2"
-            android:useDefaultMargins="true">
+            android:fillViewport="true"
+            android:scrollbars="none">
 
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:padding="4dp">
+            <GridLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:columnCount="5"
+                android:rowCount="2"
+                android:useDefaultMargins="true">
 
-                <ImageView
-                    android:layout_width="24dp"
-                    android:layout_height="24dp"
-                    android:src="@drawable/ic_menu_placeholder" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="" />
-            </LinearLayout>
-
-            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:gravity="center" android:orientation="vertical" android:padding="4dp"><ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_menu_placeholder" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" /></LinearLayout>
-            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:gravity="center" android:orientation="vertical" android:padding="4dp"><ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_menu_placeholder" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" /></LinearLayout>
-            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:gravity="center" android:orientation="vertical" android:padding="4dp"><ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_menu_placeholder" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" /></LinearLayout>
-            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:gravity="center" android:orientation="vertical" android:padding="4dp"><ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_menu_placeholder" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" /></LinearLayout>
-            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:gravity="center" android:orientation="vertical" android:padding="4dp"><ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_menu_placeholder" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" /></LinearLayout>
-            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:gravity="center" android:orientation="vertical" android:padding="4dp"><ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_menu_placeholder" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" /></LinearLayout>
-            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:gravity="center" android:orientation="vertical" android:padding="4dp"><ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_menu_placeholder" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" /></LinearLayout>
-            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:gravity="center" android:orientation="vertical" android:padding="4dp"><ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_menu_placeholder" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" /></LinearLayout>
-            <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_columnWeight="1" android:gravity="center" android:orientation="vertical" android:padding="4dp"><ImageView android:layout_width="24dp" android:layout_height="24dp" android:src="@drawable/ic_menu_placeholder" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" /></LinearLayout>
-        </GridLayout>
+                <LinearLayout android:layout_width="72dp" android:layout_height="wrap_content" android:gravity="center" android:orientation="vertical" android:padding="4dp"><ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@drawable/ic_menu_placeholder" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" /></LinearLayout>
+                <LinearLayout android:layout_width="72dp" android:layout_height="wrap_content" android:gravity="center" android:orientation="vertical" android:padding="4dp"><ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@drawable/ic_menu_placeholder" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" /></LinearLayout>
+                <LinearLayout android:layout_width="72dp" android:layout_height="wrap_content" android:gravity="center" android:orientation="vertical" android:padding="4dp"><ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@drawable/ic_menu_placeholder" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" /></LinearLayout>
+                <LinearLayout android:layout_width="72dp" android:layout_height="wrap_content" android:gravity="center" android:orientation="vertical" android:padding="4dp"><ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@drawable/ic_menu_placeholder" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" /></LinearLayout>
+                <LinearLayout android:layout_width="72dp" android:layout_height="wrap_content" android:gravity="center" android:orientation="vertical" android:padding="4dp"><ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@drawable/ic_menu_placeholder" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" /></LinearLayout>
+                <LinearLayout android:layout_width="72dp" android:layout_height="wrap_content" android:gravity="center" android:orientation="vertical" android:padding="4dp"><ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@drawable/ic_menu_placeholder" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" /></LinearLayout>
+                <LinearLayout android:layout_width="72dp" android:layout_height="wrap_content" android:gravity="center" android:orientation="vertical" android:padding="4dp"><ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@drawable/ic_menu_placeholder" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" /></LinearLayout>
+                <LinearLayout android:layout_width="72dp" android:layout_height="wrap_content" android:gravity="center" android:orientation="vertical" android:padding="4dp"><ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@drawable/ic_menu_placeholder" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" /></LinearLayout>
+                <LinearLayout android:layout_width="72dp" android:layout_height="wrap_content" android:gravity="center" android:orientation="vertical" android:padding="4dp"><ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@drawable/ic_menu_placeholder" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" /></LinearLayout>
+                <LinearLayout android:layout_width="72dp" android:layout_height="wrap_content" android:gravity="center" android:orientation="vertical" android:padding="4dp"><ImageView android:layout_width="28dp" android:layout_height="28dp" android:src="@drawable/ic_menu_placeholder" /><TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="" /></LinearLayout>
+            </GridLayout>
+        </HorizontalScrollView>
 
         <LinearLayout
             android:id="@+id/toolbarMenuActionSection"
-            android:layout_width="64dp"
-            android:layout_height="194dp"
-            android:layout_marginStart="8dp"
-            android:gravity="center_horizontal"
-            android:paddingTop="12dp"
-            android:paddingBottom="12dp"
-            android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end|center_vertical"
+            android:orientation="horizontal"
+            android:paddingTop="8dp">
 
             <ImageButton
                 android:id="@+id/btnExit"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="8dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="Exit"
                 android:src="@drawable/ic_power" />
 
             <ImageButton
                 android:id="@+id/btnSettings"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="12dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="Settings"
                 android:src="@drawable/ic_hexagon" />
 
             <ImageButton
                 android:id="@+id/btnCloseMenu"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="12dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="Close"
                 android:src="@drawable/ic_chevron_down" />
