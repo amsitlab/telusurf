@@ -55,7 +55,7 @@
                 android:background="@android:color/transparent"
                 android:contentDescription="Exit"
                 android:src="@drawable/ic_power"
-                app:tint="?attr/colorOnSurface" />
+                app:tint="?android:attr/textColorPrimary" />
 
             <ImageButton
                 android:id="@+id/btnSettings"
@@ -65,7 +65,7 @@
                 android:background="@android:color/transparent"
                 android:contentDescription="Settings"
                 android:src="@drawable/ic_hexagon"
-                app:tint="?attr/colorOnSurface" />
+                app:tint="?android:attr/textColorPrimary" />
 
             <ImageButton
                 android:id="@+id/btnCloseMenu"
@@ -75,7 +75,7 @@
                 android:background="@android:color/transparent"
                 android:contentDescription="Close"
                 android:src="@drawable/ic_chevron_down"
-                app:tint="?attr/colorOnSurface" />
+                app:tint="?android:attr/textColorPrimary" />
         </LinearLayout>
     </LinearLayout>
 
@@ -97,7 +97,7 @@
             android:background="@android:color/transparent"
             android:contentDescription="Menu"
             android:src="@drawable/ic_menu_3line"
-            app:tint="?attr/colorOnPrimary" />
+            app:tint="?android:attr/textColorPrimaryInverse" />
     </androidx.appcompat.widget.Toolbar>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
