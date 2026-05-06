@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Light theme palette inspired by Via Browser -->
+    <color name="colorPrimary">#FF8A00</color>
+    <color name="colorPrimaryDark">#E67600</color>
+    <color name="colorAccent">#FF8A00</color>
+    <color name="colorSurface">#FFFFFF</color>
+    <color name="colorOnSurface">#111111</color>
+    <color name="colorStatusBar">#E67600</color>
+</resources>

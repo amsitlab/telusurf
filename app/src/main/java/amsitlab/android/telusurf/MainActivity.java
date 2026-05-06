@@ -1,5 +1,6 @@
 package amsitlab.android.telusurf;
 
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -14,10 +15,21 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ThemeManager.applySavedTheme(this);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         onCreateLogo();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        onCreateLogo();
+    }
+
+    public void openSettings() {
+        startActivity(new Intent(this, SettingsActivity.class));
     }
 
     private void onCreateLogo() {
