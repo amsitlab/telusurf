@@ -31,6 +31,8 @@ jobs:
         run: sdkmanager "platforms;android-28" "build-tools;34.0.0"
 
       - name: Restore debug keystore
+        env:
+          DEBUG_KEYSTORE_BASE64: ${{ secrets.DEBUG_KEYSTORE_BASE64 }}
         run: |
           echo "$DEBUG_KEYSTORE_BASE64"
           echo "$DEBUG_KEYSTORE_BASE64" | base64 -d > debug.keystore
