@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Telusurf</string>
+    <string name="search_input_hint">Masukkan URL atau keyword</string>
 </resources>
