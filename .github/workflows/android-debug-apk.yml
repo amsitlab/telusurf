@@ -32,6 +32,7 @@ jobs:
 
       - name: Restore debug keystore
         run: |
+          echo "$DEBUG_KEYSTORE_BASE64"
           echo "$DEBUG_KEYSTORE_BASE64" | base64 -d > debug.keystore
           
       - name: Build debug APK
