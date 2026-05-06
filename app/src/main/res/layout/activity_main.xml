@@ -17,7 +17,7 @@
         app:layout_constraintVertical_bias="0.2" />
 
     <EditText
-        android:id="@+id/etSearchInput"
+        android:id="@+id/etSearchInputMain"
         android:layout_width="0dp"
         android:layout_height="52dp"
         android:layout_marginTop="20dp"
