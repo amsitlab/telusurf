@@ -19,9 +19,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        findViewById(R.id.btnSettings).setOnClickListener(v ->
-                startActivity(new Intent(this, SettingsActivity.class)));
-
         onCreateLogo();
     }
 
@@ -29,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         onCreateLogo();
+    }
+
+    public void openSettings() {
+        startActivity(new Intent(this, SettingsActivity.class));
     }
 
     private void onCreateLogo() {
