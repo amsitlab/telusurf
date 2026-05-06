@@ -7,6 +7,7 @@ import android.util.DisplayMetrics;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.core.widget.ImageViewCompat;
 
 public class MainActivity extends AppCompatActivity {
@@ -22,7 +23,9 @@ public class MainActivity extends AppCompatActivity {
                 (getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK)
                         == Configuration.UI_MODE_NIGHT_YES;
 
-        ImageViewCompat.setImageTintList(ivLogo, isDarkMode ? null : getColorStateList(android.R.color.black));
+        ImageViewCompat.setImageTintList(
+                ivLogo,
+                isDarkMode ? null : ContextCompat.getColorStateList(this, android.R.color.black));
 
         DisplayMetrics displayMetrics = Resources.getSystem().getDisplayMetrics();
         int logoSize = (int) (Math.min(displayMetrics.widthPixels, displayMetrics.heightPixels) * 0.42f);
