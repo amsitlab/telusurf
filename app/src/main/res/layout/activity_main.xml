@@ -47,7 +47,7 @@
                 android:id="@+id/btnExit"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginStart="8dp"
+                android:layout_marginStart="48dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="Exit"
                 android:src="@drawable/ic_power" />
@@ -56,7 +56,7 @@
                 android:id="@+id/btnSettings"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginStart="12dp"
+                android:layout_marginStart="48dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="Settings"
                 android:src="@drawable/ic_hexagon" />
@@ -65,7 +65,7 @@
                 android:id="@+id/btnCloseMenu"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginStart="12dp"
+                android:layout_marginStart="48dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="Close"
                 android:src="@drawable/ic_chevron_down" />
