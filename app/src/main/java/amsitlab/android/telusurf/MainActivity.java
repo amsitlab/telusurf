@@ -5,27 +5,23 @@ import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.core.widget.ImageViewCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import amsitlab.android.telusurf.view.ToolbarView;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Toolbar toolbar;
+    private ToolbarView toolbarView;
     private View toolbarMenuLayout;
 
     @Override
@@ -49,24 +45,24 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupToolbarMenu() {
-        toolbar = findViewById(R.id.toolbar);
+        toolbarView = findViewById(R.id.toolbarView);
         toolbarMenuLayout = findViewById(R.id.toolbarMenuLayout);
 
         setupToolbarMenuList();
 
-        ImageButton toolbarMenu = findViewById(R.id.toolbarMenu);
+        ImageButton toolbarMenu = toolbarView.getMenuButton();
         ImageButton btnExit = findViewById(R.id.btnExit);
         ImageButton btnSettings = findViewById(R.id.btnSettings);
         ImageButton btnCloseMenu = findViewById(R.id.btnCloseMenu);
 
         toolbarMenu.setOnClickListener(v -> {
-            toolbar.setVisibility(View.GONE);
+            toolbarView.setVisibility(View.GONE);
             toolbarMenuLayout.setVisibility(View.VISIBLE);
         });
 
         btnCloseMenu.setOnClickListener(v -> {
             toolbarMenuLayout.setVisibility(View.GONE);
-            toolbar.setVisibility(View.VISIBLE);
+            toolbarView.setVisibility(View.VISIBLE);
         });
 
         btnSettings.setOnClickListener(v -> openSettings());
@@ -82,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         for (int i = 0; i < 10; i++) {
             menuItems.add(R.drawable.ic_menu_placeholder);
         }
-        toolbarMenuList.setAdapter(new ToolbarMenuAdapter(menuItems));
+        toolbarMenuList.setAdapter(new ToolbarView.MenuAdapter(menuItems));
     }
 
     private void onCreateLogo() {
@@ -104,40 +100,4 @@ public class MainActivity extends AppCompatActivity {
         ivLogo.requestLayout();
     }
 
-    private static class ToolbarMenuAdapter extends RecyclerView.Adapter<ToolbarMenuAdapter.ViewHolder> {
-        private final List<Integer> items;
-
-        ToolbarMenuAdapter(List<Integer> items) {
-            this.items = items;
-        }
-
-        @NonNull
-        @Override
-        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_toolbar_menu, parent, false);
-            return new ViewHolder(view);
-        }
-
-        @Override
-        public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-            holder.icon.setImageResource(items.get(position));
-            holder.label.setText("");
-        }
-
-        @Override
-        public int getItemCount() {
-            return items.size();
-        }
-
-        static class ViewHolder extends RecyclerView.ViewHolder {
-            ImageView icon;
-            TextView label;
-
-            ViewHolder(@NonNull View itemView) {
-                super(itemView);
-                icon = itemView.findViewById(R.id.itemIcon);
-                label = itemView.findViewById(R.id.itemLabel);
-            }
-        }
-    }
 }
