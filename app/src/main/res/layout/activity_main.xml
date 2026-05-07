@@ -15,4 +15,86 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <LinearLayout
+        android:id="@+id/toolbarMenuLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_toolbar_menu_layout"
+        android:gravity="end"
+        android:orientation="vertical"
+        android:paddingStart="10dp"
+        android:paddingTop="10dp"
+        android:paddingEnd="10dp"
+        android:paddingBottom="16dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/toolbarMenuList"
+            android:layout_width="match_parent"
+            android:layout_height="216dp"
+            android:clipToPadding="false"
+            android:overScrollMode="never"
+            android:paddingEnd="8dp" />
+
+        <LinearLayout
+            android:id="@+id/toolbarMenuActionSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="end|center_vertical"
+            android:orientation="horizontal"
+            android:paddingTop="2dp">
+
+            <ImageButton
+                android:id="@+id/btnExit"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="45dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="Exit"
+                android:src="@drawable/ic_power" />
+
+            <ImageButton
+                android:id="@+id/btnSettings"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginStart="45dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="Settings"
+                android:src="@drawable/ic_hexagon" />
+
+            <ImageButton
+                android:id="@+id/btnCloseMenu"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="45dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="Close"
+                android:src="@drawable/ic_chevron_down" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
+        android:background="#CC000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageButton
+            android:id="@+id/toolbarMenu"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="end|center_vertical"
+            android:layout_marginEnd="12dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="Menu"
+            android:src="@drawable/ic_menu_3line" />
+    </androidx.appcompat.widget.Toolbar>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
