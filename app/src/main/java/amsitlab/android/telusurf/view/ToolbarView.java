@@ -22,9 +22,6 @@ import amsitlab.android.telusurf.R;
 public class ToolbarView extends ConstraintLayout {
 
     private Toolbar toolbar;
-    private TextView addressBar;
-    private ImageView secureIndicator;
-    private ImageButton refreshButton;
     private ImageButton menuButton;
 
     public ToolbarView(@NonNull Context context) {
@@ -45,9 +42,6 @@ public class ToolbarView extends ConstraintLayout {
     private void init(@NonNull Context context) {
         LayoutInflater.from(context).inflate(R.layout.toolbar, this, true);
         toolbar = findViewById(R.id.toolbar);
-        addressBar = findViewById(R.id.addressBar);
-        secureIndicator = findViewById(R.id.secureIndicator);
-        refreshButton = findViewById(R.id.refreshButton);
         menuButton = findViewById(R.id.menuButton);
     }
 
@@ -65,21 +59,6 @@ public class ToolbarView extends ConstraintLayout {
         return menuButton;
     }
 
-    @NonNull
-    public ImageButton getRefreshButton() {
-        return refreshButton;
-    }
-
-    @NonNull
-    public TextView getAddressBar() {
-        return addressBar;
-    }
-
-    @NonNull
-    public ImageView getSecureIndicator() {
-        return secureIndicator;
-    }
-
     public static class MenuAdapter extends RecyclerView.Adapter<MenuAdapter.ViewHolder> {
         private final List<Integer> items;
 
@@ -90,7 +69,7 @@ public class ToolbarView extends ConstraintLayout {
         @NonNull
         @Override
         public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_toolbar_menu, parent, false);
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.toolbar_menu_item, parent, false);
             return new ViewHolder(view);
         }
 
