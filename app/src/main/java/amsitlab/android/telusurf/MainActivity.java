@@ -217,8 +217,9 @@ public class MainActivity extends AppCompatActivity {
             });
 
             holder.btnCloseTab.setOnClickListener(v -> {
-                if (items.size() > 1) {
-                    items.remove(position);
+                int adapterPosition = holder.getBindingAdapterPosition();
+                if (adapterPosition != RecyclerView.NO_POSITION && items.size() > 1) {
+                    items.remove(adapterPosition);
                     updateTabCount();
                 }
             });
