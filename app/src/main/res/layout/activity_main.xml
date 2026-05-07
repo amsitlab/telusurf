@@ -33,7 +33,7 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/toolbarMenuList"
-            android:layout_width="360dp"
+            android:layout_width="match_parent"
             android:layout_height="216dp"
             android:clipToPadding="false"
             android:overScrollMode="never"
@@ -41,7 +41,7 @@
 
         <LinearLayout
             android:id="@+id/toolbarMenuActionSection"
-            android:layout_width="360dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="end|center_vertical"
             android:orientation="horizontal"
@@ -51,7 +51,7 @@
                 android:id="@+id/btnExit"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="45dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="Exit"
                 android:src="@drawable/ic_power" />
@@ -60,7 +60,7 @@
                 android:id="@+id/btnSettings"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginStart="16dp"
+                android:layout_marginStart="45dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="Settings"
                 android:src="@drawable/ic_hexagon" />
@@ -69,7 +69,8 @@
                 android:id="@+id/btnCloseMenu"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
-                android:layout_marginStart="16dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="45dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="Close"
                 android:src="@drawable/ic_chevron_down" />
