@@ -47,33 +47,43 @@
             android:orientation="horizontal"
             android:paddingTop="2dp">
 
-            <ImageButton
-                android:id="@+id/btnExit"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="45dp"
-                android:background="@android:color/transparent"
-                android:contentDescription="Exit"
-                android:src="@drawable/ic_power" />
+            <ImageButton android:id="@+id/btnExit" android:layout_width="24dp" android:layout_height="24dp" android:layout_marginStart="45dp" android:background="@android:color/transparent" android:contentDescription="Exit" android:src="@drawable/ic_power" />
+            <ImageButton android:id="@+id/btnSettings" android:layout_width="24dp" android:layout_height="24dp" android:layout_marginStart="45dp" android:background="@android:color/transparent" android:contentDescription="Settings" android:src="@drawable/ic_hexagon" />
+            <ImageButton android:id="@+id/btnCloseMenu" android:layout_width="24dp" android:layout_height="24dp" android:layout_marginStart="45dp" android:layout_marginEnd="8dp" android:background="@android:color/transparent" android:contentDescription="Close" android:src="@drawable/ic_chevron_down" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/toolbarTabLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        android:background="@drawable/bg_toolbar_menu_layout"
+        app:layout_constraintBottom_toTopOf="@id/toolbar"
+        app:layout_constraintStart_toStartOf="@id/toolbarMenuLayout"
+        app:layout_constraintEnd_toEndOf="@id/toolbarMenuLayout">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/tabList"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:overScrollMode="ifContentScrolls" />
+
+        <LinearLayout
+            android:id="@+id/tabSection"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/btnSettings"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginStart="45dp"
+                android:id="@+id/btnTabAdd"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
                 android:background="@android:color/transparent"
-                android:contentDescription="Settings"
-                android:src="@drawable/ic_hexagon" />
-
-            <ImageButton
-                android:id="@+id/btnCloseMenu"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginStart="45dp"
-                android:background="@android:color/transparent"
-                android:contentDescription="Close"
-                android:src="@drawable/ic_chevron_down" />
+                android:contentDescription="@string/add_tab"
+                android:src="@drawable/ic_add" />
         </LinearLayout>
     </LinearLayout>
 
@@ -85,6 +95,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/toolbarTab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start|center_vertical"
+            android:layout_marginStart="12dp"
+            android:background="@drawable/bg_tab_counter"
+            android:paddingStart="10dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="10dp"
+            android:paddingBottom="4dp"
+            android:textColor="@android:color/white"
+            android:textStyle="bold" />
 
         <ImageButton
             android:id="@+id/toolbarMenu"

@@ -18,15 +18,21 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.core.widget.ImageViewCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private View toolbarMenuLayout;
+    private View toolbarTabLayout;
+    private TextView toolbarTab;
+    private TabListAdapter tabListAdapter;
+    private final List<String> openedTabs = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
 
         onCreateLogo();
         setupToolbarMenu();
+        setupToolbarTab();
     }
 
     @Override
@@ -71,6 +78,50 @@ public class MainActivity extends AppCompatActivity {
 
         btnSettings.setOnClickListener(v -> openSettings());
         btnExit.setOnClickListener(v -> finishAffinity());
+    }
+
+    private void setupToolbarTab() {
+        toolbarTabLayout = findViewById(R.id.toolbarTabLayout);
+        toolbarTab = findViewById(R.id.toolbarTab);
+        RecyclerView tabList = findViewById(R.id.tabList);
+        ImageButton btnTabAdd = findViewById(R.id.btnTabAdd);
+
+        openedTabs.add(getHomeTitle());
+        tabListAdapter = new TabListAdapter(openedTabs);
+        tabList.setLayoutManager(new LinearLayoutManager(this));
+        tabList.setAdapter(tabListAdapter);
+
+        ViewGroup.LayoutParams params = tabList.getLayoutParams();
+        int perItemHeight = (int) (56 * getResources().getDisplayMetrics().density);
+        if (getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            params.height = perItemHeight * 4;
+        } else {
+            params.height = ViewGroup.LayoutParams.WRAP_CONTENT;
+        }
+        tabList.setLayoutParams(params);
+
+        toolbarTab.setOnClickListener(v -> {
+            toolbar.setVisibility(View.GONE);
+            toolbarTabLayout.setVisibility(View.VISIBLE);
+            toolbarMenuLayout.setVisibility(View.GONE);
+        });
+
+        btnTabAdd.setOnClickListener(v -> {
+            openedTabs.add(getHomeTitle());
+            updateTabCount();
+        });
+
+        updateTabCount();
+    }
+
+    private String getHomeTitle() {
+        String language = Locale.getDefault().getLanguage();
+        return "id".equals(language) ? "Beranda" : "Home";
+    }
+
+    private void updateTabCount() {
+        toolbarTab.setText(String.valueOf(openedTabs.size()));
+        tabListAdapter.notifyDataSetChanged();
     }
 
     private void setupToolbarMenuList() {
@@ -137,6 +188,57 @@ public class MainActivity extends AppCompatActivity {
                 super(itemView);
                 icon = itemView.findViewById(R.id.itemIcon);
                 label = itemView.findViewById(R.id.itemLabel);
+            }
+        }
+    }
+
+    private class TabListAdapter extends RecyclerView.Adapter<TabListAdapter.ViewHolder> {
+        private final List<String> items;
+
+        TabListAdapter(List<String> items) {
+            this.items = items;
+        }
+
+        @NonNull
+        @Override
+        public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_tab_list, parent, false);
+            return new ViewHolder(view);
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+            holder.tabFavicon.setImageResource(R.drawable.ic_launcher_foreground);
+            holder.tabTitle.setText(items.get(position));
+
+            holder.itemView.setOnClickListener(v -> {
+                toolbarTabLayout.setVisibility(View.GONE);
+                toolbar.setVisibility(View.VISIBLE);
+            });
+
+            holder.btnCloseTab.setOnClickListener(v -> {
+                if (items.size() > 1) {
+                    items.remove(position);
+                    updateTabCount();
+                }
+            });
+        }
+
+        @Override
+        public int getItemCount() {
+            return items.size();
+        }
+
+        class ViewHolder extends RecyclerView.ViewHolder {
+            ImageView tabFavicon;
+            TextView tabTitle;
+            ImageButton btnCloseTab;
+
+            ViewHolder(@NonNull View itemView) {
+                super(itemView);
+                tabFavicon = itemView.findViewById(R.id.tabFavicon);
+                tabTitle = itemView.findViewById(R.id.tabTitle);
+                btnCloseTab = itemView.findViewById(R.id.btnCloseTab);
             }
         }
     }
