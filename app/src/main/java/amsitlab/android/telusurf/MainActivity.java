@@ -14,18 +14,18 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
 import androidx.core.widget.ImageViewCompat;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import amsitlab.android.telusurf.view.ToolbarView;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Toolbar toolbar;
+    private ToolbarView toolbarView;
     private View toolbarMenuLayout;
 
     @Override
@@ -49,24 +49,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void setupToolbarMenu() {
-        toolbar = findViewById(R.id.toolbar);
+        toolbarView = findViewById(R.id.toolbarView);
+        toolbarView.setTitle(getString(R.string.app_name));
         toolbarMenuLayout = findViewById(R.id.toolbarMenuLayout);
 
         setupToolbarMenuList();
 
-        ImageButton toolbarMenu = findViewById(R.id.toolbarMenu);
+        ImageButton toolbarMenu = toolbarView.getMenuButton();
         ImageButton btnExit = findViewById(R.id.btnExit);
         ImageButton btnSettings = findViewById(R.id.btnSettings);
         ImageButton btnCloseMenu = findViewById(R.id.btnCloseMenu);
 
         toolbarMenu.setOnClickListener(v -> {
-            toolbar.setVisibility(View.GONE);
+            toolbarView.setVisibility(View.GONE);
             toolbarMenuLayout.setVisibility(View.VISIBLE);
         });
 
         btnCloseMenu.setOnClickListener(v -> {
             toolbarMenuLayout.setVisibility(View.GONE);
-            toolbar.setVisibility(View.VISIBLE);
+            toolbarView.setVisibility(View.VISIBLE);
         });
 
         btnSettings.setOnClickListener(v -> openSettings());
